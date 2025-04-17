@@ -1,0 +1,14 @@
+{
+  "watch": [
+    "server.js",
+    "index.html",
+    "*.js",
+    "*.html",
+    "*.css"
+  ],
+  "ext": "js,html,css",
+  "ignore": [
+    "node_modules"
+  ],
+  "delay": "500"
+}

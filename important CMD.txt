@@ -1,0 +1,3 @@
+: to create SECRET_KEY_BASE
+=> openssl rand -base64 64
+

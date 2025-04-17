@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <PlausibleProvider
+      domain="analytics"
+      trackLocalhost={true}
+      enable={true}
+      taggedEvents={true}
+    >
+    <!-- <script defer data-domain="express-boilerplate" src="https://plausible.io/js/script.tagged-events.js"></script> --> <!-- it was for free trial account -->
+    <!-- <script defer data-domain="express-boilerplate" src="http://localhost:8000/js/script.tagged-events.js"></script> it was for docker setup in self hosted -->
+
+    <script defer data-domain="analytics" src="http://localhost:8000/js/script.pageview-props.tagged-events.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Frontend</h1>
+
+    <p>This is a simple test frontend with buttons to click. Click the buttons below to see their effects:</p>
+
+    <div class="button-container">
+        <button id="button1" className="plausible-event-name=buttonClick">Button 1</button>
+        <button id="button2" className="plausible-event-name=buttonClick">Button 2</button>
+        <button id="button3">Button 3</button>
+        <button id="button4">Button 4</button>
+    </div>
+
+    <div class="result" id="result">
+        <p>Click results will appear here...</p>
+    </div>
+
+    <script>
+        // Simple JavaScript to handle button clicks with Plausible Analytics tracking
+        document.getElementById('button1').addEventListener('click', function() {
+            document.getElementById('result').innerHTML = '<p>Button 1 was clicked!</p>';
+            // Track the event in Plausible
+            if (window.plausible) {
+                window.plausible('buttonClick');
+            }
+        });
+
+        document.getElementById('button2').addEventListener('click', function() {
+            document.getElementById('result').innerHTML = '<p>Button 2 was clicked!</p>';
+            // Track the event in Plausible
+            if (window.plausible) {
+                window.plausible('buttonClick');
+            }
+        });
+
+        document.getElementById('button3').addEventListener('click', function() {
+            document.getElementById('result').innerHTML = '<p>Button 3 was clicked!</p>';
+            // Track the event in Plausible
+            if (window.plausible) {
+                window.plausible('buttonClick');
+            }
+        });
+
+        document.getElementById('button4').addEventListener('click', function() {
+            document.getElementById('result').innerHTML = '<p>Button 4 was clicked!</p>';
+            // Track the event in Plausible
+            if (window.plausible) {
+                window.plausible('Button4Click');
+            }
+        });
+    </script>
+</body>
+</html>
